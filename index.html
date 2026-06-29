@@ -3,37 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maker Bro's</title>
+    <title>Maker Bro's |</title>
     <style>
-        :root { --main-dark: #1a1a1a; --accent-orange: #ff6600; }
-        body { font-family: 'Segoe UI', sans-serif; background: var(--main-dark); color: #fff; margin: 0; }
-        header { text-align: center; padding: 2rem; border-bottom: 3px solid var(--accent-orange); }
-        h1 { color: var(--accent-orange); text-transform: uppercase; }
-        
-        /* Carrusel simple */
-        .slider { width: 100%; max-width: 800px; height: 300px; margin: auto; overflow: hidden; position: relative; border: 2px solid #444; }
-        .slides { display: flex; width: 300%; animation: slide 15s infinite; }
-        .slide { width: 100%; height: 300px; background-size: cover; background-position: center; }
-        @keyframes slide { 0% { margin-left: 0; } 33% { margin-left: -100%; } 66% { margin-left: -200%; } }
-
-        .container { max-width: 800px; margin: 20px auto; padding: 20px; text-align: center; }
-        .btn { display: inline-block; background: var(--accent-orange); color: white; padding: 12px 25px; text-decoration: none; border-radius: 4px; font-weight: bold; }
+        :root { --main-dark: #1a1a1a; --accent-orange: #ff6600; --text: #f4f4f4; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--main-dark); color: var(--text); margin: 0; padding: 0; }
+        header { background: #000; padding: 2rem; text-align: center; border-bottom: 3px solid var(--accent-orange); }
+        h1 { color: var(--accent-orange); text-transform: uppercase; margin: 0; }
+        .container { max-width: 1000px; margin: auto; padding: 20px; }
+        .gallery-section { margin-bottom: 40px; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 10px; }
+        .gallery-grid img { width: 100%; border-radius: 5px; border: 2px solid #333; transition: 0.3s; }
+        .gallery-grid img:hover { border-color: var(--accent-orange); }
+        .btn { display: inline-block; background: var(--accent-orange); color: white; padding: 12px 25px; text-decoration: none; border-radius: 4px; font-weight: bold; margin-top: 20px; }
+        footer { text-align: center; padding: 50px; color: #666; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
 <header>
     <h1>Maker Bro's</h1>
+    <p>Calidad Industrial | Impresión 3D & Láser</p>
 </header>
 
-<div class="slider">
-    <div class="slides">
-        <div class="slide" style="background-image: url('https://via.placeholder.com/800x300?text=Produccion+3D')"></div>
-        <div class="slide" style="background-image: url('https://via.placeholder.com/800x300?text=Grabado+Laser')"></div>
-        <div class="slide" style="background-image: url('https://via.placeholder.com/800x300?text=Taller+Maker+Bros')"></div>
+<div class="container">
+    <div class="gallery-section">
+        <h2>Categoría: Articulados </h2>
+        <div id="flex-gallery" class="gallery-grid"></div>
     </div>
+    <div class="gallery-section">
+        <h2>Categoría: Modelos Funcionales</h2>
+        <div id="util-gallery" class="gallery-grid"></div>
+    </div>
+    <div class="gallery-section">
+        <h2>Categoría: Modelos Personalizados</h2>
+        <div id="perso-gallery" class="gallery-grid"></div>
+    </div>
+    <div class="gallery-section">
+        <h2>Categoría: Laser (Grabado)</h2>
+        <div id="laser-gallery" class="gallery-grid"></div>
+    </div>
+
 </div>
 
+<script>
+    // SOLO EDITA ESTAS LISTAS CUANDO SUBAS FOTOS NUEVAS
+    const flexFotos = ['flex1.png', 'flex2.png', 'flex3.png', 'flex4.png', 'flex5.png'];
+    const laserFotos = ['laser1.png'];
+    const persoFotos= ["per1.png","per2.png","per3.png","per4.png","per5.png"];
+    const utilFotos=["util1.png","util2.png","util3.png","util4.png"];
+    function renderGallery(id, fotos, carpeta) {
+        const container = document.getElementById(id);
+        fotos.forEach(archivo => {
+            const img = document.createElement('img');
+            img.src = `img/${carpeta}/${archivo}`;
+            img.alt = 'Producto Maker Bro\'s';
+            container.appendChild(img);
+        });
+    }
+
+    renderGallery('flex-gallery', flexFotos, 'flex');
+    renderGallery('perso-gallery', laserFotos, 'perso');
+    renderGallery('util-gallery', laserFotos, 'util');
+    renderGallery('laser-gallery', laserFotos, 'laser');
+</script>
+
+<footer>
+    &copy; 2026 Maker Bro's | Workshop Production
+</footer>
 
 </body>
 </html>

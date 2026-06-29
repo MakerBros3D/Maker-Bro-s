@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maker Bro's</title>
+    <style>
+        :root { --main-dark: #1a1a1a; --accent-orange: #ff6600; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--main-dark); color: #fff; margin: 0; }
+        header { text-align: center; padding: 2rem; border-bottom: 3px solid var(--accent-orange); }
+        h1 { color: var(--accent-orange); text-transform: uppercase; }
+        
+        /* Carrusel simple */
+        .slider { width: 100%; max-width: 800px; height: 300px; margin: auto; overflow: hidden; position: relative; border: 2px solid #444; }
+        .slides { display: flex; width: 300%; animation: slide 15s infinite; }
+        .slide { width: 100%; height: 300px; background-size: cover; background-position: center; }
+        @keyframes slide { 0% { margin-left: 0; } 33% { margin-left: -100%; } 66% { margin-left: -200%; } }
+
+        .container { max-width: 800px; margin: 20px auto; padding: 20px; text-align: center; }
+        .btn { display: inline-block; background: var(--accent-orange); color: white; padding: 12px 25px; text-decoration: none; border-radius: 4px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Maker Bro's</h1>
+</header>
+
+<div class="slider">
+    <div class="slides">
+        <div class="slide" style="background-image: url('https://via.placeholder.com/800x300?text=Produccion+3D')"></div>
+        <div class="slide" style="background-image: url('https://via.placeholder.com/800x300?text=Grabado+Laser')"></div>
+        <div class="slide" style="background-image: url('https://via.placeholder.com/800x300?text=Taller+Maker+Bros')"></div>
+    </div>
+</div>
+
+
+</body>
+</html>
